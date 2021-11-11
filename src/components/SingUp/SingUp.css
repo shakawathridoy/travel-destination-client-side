@@ -1,0 +1,14 @@
+.singUp-body {
+    display: block;
+    color: #283779;
+    margin-bottom: 100px;
+    border-bottom-left-radius: 500% 300%;
+    border-bottom-right-radius: 500% 300%;
+}
+
+.singUp-body input{
+    border-radius: 10px;
+    padding: 5px;
+    width: 400px;
+    
+}
