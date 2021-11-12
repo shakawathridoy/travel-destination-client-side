@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card, FormControl, InputGroup } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Services.css'
 
@@ -15,18 +15,18 @@ const Home = () => {
     // load data from json 
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
+        fetch("http://localhost:5000/allPlaces")
         .then(res => res.json())
         .then(data => setServices(data))
     } , [])
 
     // set Dynamic url
 
-    const history = useHistory();
-    const handleBooking = (id) => {
-        const uri = `booking/${id}`
-        history.push(uri);
-    }
+    // const history = useHistory();
+    // const handleBooking = (id) => {
+    //     const uri = `booking/${id}`
+    //     history.push(uri);
+    // }
 
     return (
         <div className="container p-4">
@@ -50,19 +50,21 @@ const Home = () => {
                 <div className="row">
                     {
                         services.map(service => 
-                            <div key={service.id} className="col-lg-4 col-md-6 text-center">
+                            <div key={service._id} className="col-lg-4 col-md-6 text-center">
                                 
-                            <Card className="cart-service"  style={{ marginBottom: '35px', height: '800px', borderRadius: "20px" }}>
+                            <Card className="cart-service"  style={{ marginBottom: '35px', height: '700px', borderRadius: "20px" }}>
                             <Card.Img className="p-3" variant="top" src={service.img} />
                             <Card.Body>
-                                <Card.Title>Name: {service.title}</Card.Title>
+                                <Card.Title>Name: {service.name}</Card.Title>
                                 <Card.Text>
-                                {service.body}
+                                {service.description}
                                 </Card.Text>
                                 <Card.Text className="text-success">
-                                Fee: ${service.fee}
+                                Tour Fee: ${service.price}
                                 </Card.Text>
-                                <Button onClick={()=>handleBooking(service.id)} className="button" variant="primary">Book An Appoinment</Button>
+                                <Link to={`/booking/${service._id}`}>
+                                <Button  className="button" variant="primary">Book Now</Button>
+                                </Link>
                                 
                             </Card.Body>
                             </Card>
