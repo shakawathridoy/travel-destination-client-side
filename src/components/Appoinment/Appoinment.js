@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './Appoinment.css'
+import useAuth from '../../Hooks/useAuth';
 
 const Appoinment = () => {
 
     const {placeId} = useParams();
     const [appoinments, setAppoinments] =  useState({});
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const email = sessionStorage.getItem("email")
+    const {user, logOut} = useAuth()
     
     useEffect(() => 
         fetch(`http://localhost:5000/singlePlace/${placeId}`)
@@ -18,7 +19,6 @@ const Appoinment = () => {
 
 
      const onSubmit = (data) => {
-         data.email = email;
         console.log(data);
      }
 
@@ -89,9 +89,8 @@ const Appoinment = () => {
                         {errors.self && <p className="text-danger">This field is required</p>}
                         </div>
                     <div className="">
-                    <h6 className="mt-2">Your Address</h6>
-                        <input type="text" {...register("address", { required: true })} className="form-control" placeholder="Write your Address"/>
-                        
+                    <h6 className="mt-2">Your Email</h6>
+                        <input type="text" {...register("email")} defaultValue={user.email} className="form-control"/>
                         </div>
                         <input className="mt-3 text-right btn btn-primary profile-button" type="submit" placeholder="Add New Place" />
                 </form>

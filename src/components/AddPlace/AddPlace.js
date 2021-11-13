@@ -5,18 +5,17 @@ const AddPlace = () => {
 
      const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
-    fetch("http://localhost:5000/allPl", {
+    fetch("http://localhost:5000/addPlace", {
         method: "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
     })
     .then((res) => res.json())
     .then(result => console.log(result) )
-     console.log(data);
     };
     return (
         <div>
-            <h1 className="text-Success text-center mt-4">Please Confirm Booking!</h1>
+            <h1 className="text-Success text-center mt-4">Add Your Place!</h1>
             
             <div className="container rounded mt-5 mb-5 ">
     <div className="row">
