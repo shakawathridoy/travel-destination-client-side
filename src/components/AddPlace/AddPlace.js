@@ -1,17 +1,20 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 const AddPlace = () => {
 
+
      const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
-    fetch("http://localhost:5000/addPlace", {
+    fetch("https://boiling-dusk-61010.herokuapp.com/addPlace", {
         method: "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
     })
     .then((res) => res.json())
     .then(result => console.log(result))
+    alert("successfull")
     };
     return (
         <div>

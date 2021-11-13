@@ -2,7 +2,7 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Card, FormControl, InputGroup } from 'react-bootstrap';
+import { Card, FormControl, InputGroup, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import './Services.css'
@@ -11,11 +11,12 @@ import './Services.css'
 const Home = () => {
 
     const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState([]);
 
     // load data from json 
 
     useEffect(() => {
-        fetch("http://localhost:5000/allPlaces")
+        fetch("https://boiling-dusk-61010.herokuapp.com/allPlaces")
         .then(res => res.json())
         .then(data => setServices(data))
     } , [])
@@ -23,6 +24,7 @@ const Home = () => {
 
     return (
         <div className="container p-4">
+            
             <div className="text-center">
                 <h1><b>You can find here Favorite Place of Yours</b></h1>
                 <h6 className="text-success">Search your Favroite Destination!</h6>
@@ -70,6 +72,7 @@ const Home = () => {
 
                 </div>
             </div>
+        
         </div>
     );
 };

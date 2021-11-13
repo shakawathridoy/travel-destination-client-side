@@ -50,21 +50,21 @@ const Footer = () => {
             <div className="col-md-2">
               <div className="footer-menu-container">
                 <ul>
-                  <Link to="/home">
+                  
                   <li className="footer-menu ">Home</li>
-                  </Link>
-                  <Link to="/service">
+                  
+                  
                   <li className="footer-menu">Services</li>
-                  </Link>
-                  <Link to="/appoinment">
+                  
+                  
                   <li className="footer-menu">Appoinmets</li>
-                  </Link>
-                  <Link to="/contact">
+                  
+                 
                   <li className="footer-menu">Contact</li>
-                  </Link>
-                  <Link to="/about">
+                 
+                  
                   <li className="footer-menu"> About</li>
-                  </Link>
+                  
                 </ul>
               </div>
             </div>

@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# website live link
+https://winter-travel-destination.web.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Why Choose Us!!
 
-In the project directory, you can run:
+## Handpicked Hotels1
 
-### `npm start`
+Julia's love of historical buildings, the English countryside, local food, and good wine inspired her dream to own a collection of hotels that would
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## World Class Service.: 
 
-### `npm test`
+World class service is defined as vastly exceeding customers' expectations and building brand loyalty as a result.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Best Price Guarantee.:
+Our Best Price Guarantee means that you can be sure of booking at the best rate. If you find a lower price elsewhere within 24 hours.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### How It all Started?:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We all travel and have been a tourist, perhaps many times in our life. Tourism and tourist are so common words that they find mention in newspapers and magazines almost on a daily basis. In spite of its popularity, have you ever deliberated what the definition of travel and tourism is? What components constitute the tourism industry? Who qualifies to be called a tourist? Well, this article attempts to explore the words "travel”, “tourism” and "tourist'- both technically as well as conceptually.
 
-### `npm run eject`
+What is the meaning of travel and how it converted into a full-time industry? What are the fundamental concepts pertaining to tourism and what are the characteristics of tourism as an industry? What are the different forms of tourism? In this article, we will explore answers to these basic questions on the travel and tourism industry.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The term travel originates from the Old French word ‘travail’ which meant heavy labor. Travel refers to the movement of people or objects such as airplanes, boats, trains, and other conveyances between various distant geographical locations. Another "etymologically for the world tour as suggested by Theobald in 1994 is that it is derived from the Latin, 'tornare' and the Greek, 'tornos', meaning 'a lathe or circle and the movement around a central point or axis'. This meaning changed in modern English to represent 'one's turn‘ and they suggest the action of movement around a circle. Argument is that a circle represents a starting point, which ultimately returns back to its beginning. Therefore, like a circle, a tour represents a journey in that it is a round-trip, i.e., the act of leaving and then returning to the original starting point, and therefore, one who takes such a journey can be called a tourist

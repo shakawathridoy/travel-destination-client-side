@@ -12,22 +12,22 @@ const Appoinment = () => {
     const {user} = useAuth()
     
     useEffect(() => 
-        fetch(`http://localhost:5000/singlePlace/${placeId}`)
+        fetch(`https://boiling-dusk-61010.herokuapp.com/singlePlace/${placeId}`)
         .then(res => res.json())
         .then(data => setAppoinments(data))
      , []);
 
 
      const onSubmit = (data) => {
-        fetch("http://localhost:5000/confirmBooking", {
+         data.status = "Pending";
+        fetch("https://boiling-dusk-61010.herokuapp.com/confirmBooking", {
             method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data),
         })
         .then((res) => res.json())
         .then(result => console.log(result) )
-            console.log(data);
-        console.log(data);
+        alert("successful")
      }
 
     return (
@@ -100,7 +100,9 @@ const Appoinment = () => {
                     <h6 className="mt-2">Your Email</h6>
                         <input type="text" {...register("email")} defaultValue={user.email} className="form-control"/>
                         </div>
+                        
                         <input className="mt-3 text-right btn btn-primary profile-button" type="submit" placeholder="Add New Place" />
+                        
                 </form>
                 </div>
             </div>
