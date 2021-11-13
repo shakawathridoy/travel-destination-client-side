@@ -36,7 +36,7 @@ function App() {
               <Route exact path="/singUp">
                 <SingUp></SingUp>
               </Route>
-              <PrivateRoute exact path="/myBooking">
+              <PrivateRoute exact path="/myBookings">
                 <MyBooking></MyBooking>
               </PrivateRoute>
               <PrivateRoute exact path="/manageBooking">

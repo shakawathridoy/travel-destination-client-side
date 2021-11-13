@@ -11,7 +11,7 @@ const AddPlace = () => {
         body: JSON.stringify(data)
     })
     .then((res) => res.json())
-    .then(result => console.log(result) )
+    .then(result => console.log(result))
     };
     return (
         <div>

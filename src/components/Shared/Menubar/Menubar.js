@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ButtonGroup as Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
@@ -7,7 +7,8 @@ import './Menubar.css'
 
 const Menubar = () => {
 
-  const {user, logOut} = useAuth()
+  const {user, logOut} = useAuth();
+  
     return (
         <div className="nav-edit">
             <Navbar bg="dark" className="" variant="dark" sticky="top" collapseOnSelect expand="lg">
@@ -17,7 +18,7 @@ const Menubar = () => {
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
       <Nav.Link className="nav-edit text-warning" as={Link} to="/home">Home</Nav.Link>
-      <Nav.Link  className="text-warning"  as={Link} to="/myBooking">My Booking</Nav.Link>
+      <Nav.Link  className="text-warning"  as={Link} to="/myBookings">My Booking</Nav.Link>
       <Nav.Link  className="text-warning" as={Link} to="/managebooking">Manage Booking</Nav.Link>
       <Nav.Link  className="text-warning" as={Link} to="/addPlace">Add Place</Nav.Link>
       <p className="mt-3 ms-3 text-white">{user.displayName}</p>

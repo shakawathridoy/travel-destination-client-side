@@ -20,13 +20,6 @@ const Home = () => {
         .then(data => setServices(data))
     } , [])
 
-    // set Dynamic url
-
-    // const history = useHistory();
-    // const handleBooking = (id) => {
-    //     const uri = `booking/${id}`
-    //     history.push(uri);
-    // }
 
     return (
         <div className="container p-4">

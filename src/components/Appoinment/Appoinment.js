@@ -9,7 +9,7 @@ const Appoinment = () => {
     const {placeId} = useParams();
     const [appoinments, setAppoinments] =  useState({});
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const {user, logOut} = useAuth()
+    const {user} = useAuth()
     
     useEffect(() => 
         fetch(`http://localhost:5000/singlePlace/${placeId}`)
@@ -19,6 +19,14 @@ const Appoinment = () => {
 
 
      const onSubmit = (data) => {
+        fetch("http://localhost:5000/confirmBooking", {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(data),
+        })
+        .then((res) => res.json())
+        .then(result => console.log(result) )
+            console.log(data);
         console.log(data);
      }
 
@@ -61,7 +69,7 @@ const Appoinment = () => {
                         <h6 className="">Tour Area</h6>
                         <input
                         {...register("name")} 
-                        type="text" defaultValue={appoinments?.name} className="form-control" placeholder="Tour Area" />
+                        type="text" defaultValue={appoinments?.name} className="form-control"  />
                     </div>
                     <div className="">
                     <h6 className="mt-2">Your Name</h6>
