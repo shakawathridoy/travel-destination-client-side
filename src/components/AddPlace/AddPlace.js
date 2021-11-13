@@ -5,7 +5,7 @@ const AddPlace = () => {
 
      const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
-    fetch("http://localhost:5000/allPlaces", {
+    fetch("http://localhost:5000/allPl", {
         method: "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
@@ -35,7 +35,7 @@ const AddPlace = () => {
                         <input
                         {...register("name", { required: true })} 
                         type="text" className="form-control" placeholder="Tour Area" />
-                        {errors.name && <p>This field is required</p>}
+                        {errors.name && <p className="text-danger">This field is required</p>}
                     </div>
                     <div className="">
                     <h6 className="mt-2">Place Details</h6>
@@ -52,12 +52,12 @@ const AddPlace = () => {
                     <div className="">
                     <h6 className="mt-2">Place Image</h6>
                         <input type="text" {...register("img", { required: true })} className="form-control" placeholder="Image URL"/>
-                        {errors.img && <p>This field is required</p>}
+                        {errors.img && <p className="text-danger">This field is required</p>}
                         </div>
                     <div className="">
                     <h6 className="mt-2">Your Budget</h6>
-                        <input type="number" {...register("price", { required: true })} className="form-control" placeholder="Write you Budget"/>
-                        {errors.price && <p>This field is required</p>}
+                        <input type="number" {...register("price", { required: true })} className="form-control" placeholder="Write your Budget"/>
+                        {errors.price && <p className="text-danger">This field is required</p>}
                         </div>
                         <input className="mt-2 text-right btn btn-primary profile-button" type="submit" placeholder="Add New Place" />
                 </div>

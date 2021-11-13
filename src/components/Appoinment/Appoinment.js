@@ -1,65 +1,105 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './Appoinment.css'
 
 const Appoinment = () => {
 
-    const { placeId } = useParams();
-    const [appoinments, setAppoinments] = useState({});
-    const [specificAppoinment, setSpecificAppoinment] = useState({});
-
-    useEffect(() =>
+    const {placeId} = useParams();
+    const [appoinments, setAppoinments] =  useState({});
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const email = sessionStorage.getItem("email")
+    
+    useEffect(() => 
         fetch(`http://localhost:5000/singlePlace/${placeId}`)
-            .then(res => res.json())
-            .then(data => setAppoinments(data))
-        , []);
+        .then(res => res.json())
+        .then(data => setAppoinments(data))
+     , []);
 
-    console.log(appoinments);
-    useEffect(() => {
-        if (appoinments.length > 0) {
-            const matchedData = appoinments.find(appoinment => appoinment._id == placeId)
-            setSpecificAppoinment(matchedData);
-        }
-    }, [appoinments]);
+
+     const onSubmit = (data) => {
+         data.email = email;
+        console.log(data);
+     }
 
     return (
         <div>
-            <h1 className="text-Success text-center mt-4">Please Confirm Booking!</h1>
-            <div className="container body rounded mt-5 mb-5 ">
+            <h1 className=" text-success text-center mt-3">Please Confirm Booking!</h1>
+
+            <div className="container rounded mt-5 mb-5 ">
+    <div className="row">
+            <div className="col-md-6 ">
+        <div className="body-route">
+                    <h3 className="text-center m-2">{appoinments?.name}</h3>
+                        <img src={appoinments?.img} alt="" />
                 <div className="row">
-                    <div className="col-md-4 border-right">
-                        <div className="d-flex flex-column align-items-center text-center p-3 py-5"><img className="rounded-circle mt-5" src={specificAppoinment?.img} width="90" /><span className="font-weight-bold">Name: {specificAppoinment?.name}</span><span className="text-black-50">Consultation Fees: ${specificAppoinment?.price}</span><span>Catagory: {specificAppoinment?.category}</span></div>
+                    <div className="col-md-6">
+                        <h4 className="text-center bg-warning">${appoinments?.price}</h4>
                     </div>
-                    <div className="col-md-8">
-                        <div className="p-3 py-5">
-                            <div className="d-flex justify-content-between align-items-center mb-3">
-                                <div className="d-flex flex-row align-items-center back"><i className="fa fa-long-arrow-left mr-1 mb-1"></i>
-                                    <h6>Back to home</h6>
-                                </div>
-                                <h6 className="text-right">Edit Profile</h6>
-                            </div>
-                            <div className="row mt-2">
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="first name" /></div>
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Doe" /></div>
-                            </div>
-                            <div className="row mt-3">
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Email" /></div>
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Phone number" /></div>
-                            </div>
-                            <div className="row mt-3">
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="address" /></div>
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Country" /></div>
-                            </div>
-                            <div className="row mt-3">
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Bank Name" /></div>
-                                <div className="col-md-6"><input type="text" className="form-control" placeholder="Account Number" /></div>
-                            </div>
-                            <div className="mt-5 text-right"><button className="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                        </div>
+                    <div className="col-md-6">
+                        <h4 className="text-center bg-warning">{appoinments?.category}</h4>
                     </div>
+                    <div>
+                    </div>
+                    <div className=""><p className="">{appoinments?.description}</p></div>
                 </div>
             </div>
+            </div>
+        <div className="col-md-6 body">
+            <div className="p-3 py-5">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <div className="d-flex flex-row align-items-center back"><i className="fa fa-long-arrow-left mr-1 mb-1"></i>
+                        <Link to="/home">
+                        <h6>Back to home</h6>
+                        </Link>
+                    </div>
+                    <h6 className="text-right">Edit Profile</h6>
+                </div>
+                <div className=" mt-2">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="">
+                        <h6 className="">Tour Area</h6>
+                        <input
+                        {...register("name")} 
+                        type="text" defaultValue={appoinments?.name} className="form-control" placeholder="Tour Area" />
+                    </div>
+                    <div className="">
+                    <h6 className="mt-2">Your Name</h6>
+                        <input 
+                        {...register("self", { required: true })} 
+                        type="text" className="form-control" placeholder="You Full Name" />
+                        {errors.self && <p className="text-danger">This field is required</p>}
+                    </div>
+                    <div className="">
+                    <h6 className="mt-2">Tour Date</h6>
+                        <input 
+                        {...register("date", { required: true })} 
+                        type="date" className="form-control"  />
+                        {errors.date && <p className="text-danger">This field is required</p>}
+                    </div>
+                    <div className="">
+                    <h6 className="mt-2">Category</h6>
+                        <input  
+                        {...register("category")} 
+                        type="text" className="form-control" defaultValue="Couple Package" />
+                    </div>
+                    <div className="">
+                    <h6 className="mt-2">Your Phone Number</h6>
+                        <input type="number" {...register("number", { required: true })} className="form-control" placeholder="Number"/>
+                        {errors.self && <p className="text-danger">This field is required</p>}
+                        </div>
+                    <div className="">
+                    <h6 className="mt-2">Your Address</h6>
+                        <input type="text" {...register("address", { required: true })} className="form-control" placeholder="Write your Address"/>
+                        
+                        </div>
+                        <input className="mt-3 text-right btn btn-primary profile-button" type="submit" placeholder="Add New Place" />
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     );
 };
